@@ -1,0 +1,22 @@
+# Python environment - recreate with: python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/
+__pycache__/
+*.pyc
+
+# TensorKit clone - recreate with the command in README.md
+lib/
+
+# Local backups
+*.orig
+*.bak
+
+# Stray outputs in the project root (results belong in bench/<run>/)
+/energy_vs_time.png
+/energy_vs_time.npy
+/energy_vs_time_matched.png
+/trace_matched.npz
+/fci_lander_energy_vs_time.png
+/fci_lander_energy_vs_time.npy
+/fci_lander_trace.npz
+/fci_cstyle_energy_vs_time.png
+/fci_cstyle_energy_vs_time.npy
