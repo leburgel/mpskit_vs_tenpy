@@ -1,0 +1,6 @@
+start: 2026-09-09T13:54:07+02:00
+MPSKit: 809c8109 De-duplicate channels where possible in `MPOHamiltonian` constructor
+route: IDMRG2, final solver settings, KrylovKit's default (two-pass) orthogonalizer
+purpose: measured numbers for FINDINGS 1 and 6 now that the orth switch is gone
+prior single-pass run: 5.40 s/it, 279 s total (bench/mgs1_idmrg2_v4)
+end: 2026-09-09T14:02:27+02:00

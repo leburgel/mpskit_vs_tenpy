@@ -1,0 +1,9 @@
+load_before: 13.85 16.07 16.63 15/2499 3578861
+start: 2026-09-08T16:36:51+02:00
+MPSKit: 809c8109 De-duplicate channels where possible in `MPOHamiltonian` constructor
+julia threads: 12 (unit cell = 12 sites); BLAS threads: 1 via cap_blas_threads
+eigsolve:     krylovdim=16 maxiter=5 eager MGS2 tol_factor=1e0 tol_max=1e-2
+environments: krylovdim=16 maxiter=5 eager tol_factor=1e0 tol_max=1e-2
+gauge:        stock Defaults.alg_gauge()
+vumps_per_round: 2
+NOTE: launched directly, box was clear of our jobs

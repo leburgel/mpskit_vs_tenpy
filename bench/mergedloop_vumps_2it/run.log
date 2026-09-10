@@ -1,0 +1,7 @@
+start: 2026-09-09T13:19:49+02:00
+MPSKit: 809c8109 De-duplicate channels where possible in `MPOHamiltonian` constructor
+route: VUMPS + VUMPSSvdCut via the shared expand_to_target loop (2 VUMPS it/round)
+purpose: confirm the merged loop does not regress vs bench/envrelax_vumps_2it
+changed vs baseline: expand-first round order (was optimize-first); BLAS 8 (was 1)
+baseline: expansion 318.81 s / 8 rounds, VUMPS(50) E=-0.2791059926 err=2.533e-03, wall 15:46
+end: 2026-09-09T13:34:58+02:00

@@ -1,0 +1,6 @@
+load_before: 12.33 12.69 14.04 13/2334 3216598
+start: 2026-09-08T12:32:53+02:00
+MPSKit: 809c8109 De-duplicate channels where possible in `MPOHamiltonian` constructor
+cmd: .venv/bin/python bench/script_tracked.py
+load_after: 12.85 12.74 13.96 13/2327 3216629
+end: 2026-09-08T12:33:58+02:00

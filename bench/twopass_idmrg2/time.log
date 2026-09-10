@@ -1,0 +1,75 @@
+[ Info: IDMRG2 init:	obj = +9.974388360673e-07	err = 1.0000e+00
+[ Info: IDMRG2   1:	obj = -3.394593211446e+00	err = 1.3533196473e+00	time = 15.89 sec
+[ Info: IDMRG2   2:	obj = -3.084207762144e+00	err = 5.1479391804e-01	time = 1.03 sec
+[ Info: IDMRG2   3:	obj = -3.219959083077e+00	err = 2.2579835238e-01	time = 1.78 sec
+[ Info: IDMRG2   4:	obj = -3.290418121070e+00	err = 8.2842239388e-02	time = 6.36 sec
+[ Info: IDMRG2   5:	obj = -3.318832891157e+00	err = 8.9500463919e-02	time = 3.94 sec
+[ Info: IDMRG2   6:	obj = -3.339830590732e+00	err = 3.8271044118e-02	time = 3.47 sec
+[ Info: IDMRG2   7:	obj = -3.346097214918e+00	err = 3.1665694596e-02	time = 3.23 sec
+[ Info: IDMRG2   8:	obj = -3.346801263474e+00	err = 2.0583518444e-02	time = 2.03 sec
+[ Info: IDMRG2   9:	obj = -3.347349340756e+00	err = 1.4450823375e-02	time = 2.99 sec
+[ Info: IDMRG2  10:	obj = -3.349186576176e+00	err = 8.7545847470e-03	time = 1.92 sec
+[ Info: IDMRG2  11:	obj = -3.349937586647e+00	err = 1.2078921545e-02	time = 3.14 sec
+[ Info: IDMRG2  12:	obj = -3.349735127875e+00	err = 5.9891750001e-03	time = 2.90 sec
+[ Info: IDMRG2  13:	obj = -3.350043329112e+00	err = 5.8521254383e-03	time = 3.25 sec
+[ Info: IDMRG2  14:	obj = -3.350510422180e+00	err = 6.7786319682e-03	time = 3.35 sec
+[ Info: IDMRG2  15:	obj = -3.350501569794e+00	err = 4.9988678923e-03	time = 1.95 sec
+[ Info: IDMRG2  16:	obj = -3.350459158699e+00	err = 4.4228038810e-03	time = 3.18 sec
+[ Info: IDMRG2  17:	obj = -3.350691469768e+00	err = 4.6516428931e-03	time = 3.39 sec
+[ Info: IDMRG2  18:	obj = -3.350786841578e+00	err = 4.0825968136e-03	time = 3.35 sec
+[ Info: IDMRG2  19:	obj = -3.350699159500e+00	err = 2.2960720427e-03	time = 3.41 sec
+[ Info: IDMRG2  20:	obj = -3.350753752022e+00	err = 3.7964208053e-03	time = 3.78 sec
+[ Info: IDMRG2  21:	obj = -3.350881793648e+00	err = 3.1290310887e-03	time = 3.45 sec
+[ Info: IDMRG2  22:	obj = -3.350855764158e+00	err = 3.4347058336e-03	time = 3.63 sec
+[ Info: IDMRG2  23:	obj = -3.350815630915e+00	err = 2.6212848339e-03	time = 3.69 sec
+[ Info: IDMRG2  24:	obj = -3.350903670879e+00	err = 3.5560879147e-03	time = 2.71 sec
+[ Info: IDMRG2  25:	obj = -3.350952935938e+00	err = 4.7474813819e-03	time = 3.49 sec
+[ Info: IDMRG2  26:	obj = -3.350897304714e+00	err = 1.5586931241e-03	time = 3.23 sec
+[ Info: IDMRG2  27:	obj = -3.350922679447e+00	err = 3.1402104916e-03	time = 4.21 sec
+[ Info: IDMRG2  28:	obj = -3.350986681571e+00	err = 2.9697735118e-03	time = 3.50 sec
+[ Info: IDMRG2  29:	obj = -3.350959645139e+00	err = 2.0184342500e-03	time = 3.85 sec
+[ Info: IDMRG2  30:	obj = -3.350939538303e+00	err = 1.6150271368e-03	time = 3.72 sec
+[ Info: IDMRG2  31:	obj = -3.350987227485e+00	err = 2.0390883714e-03	time = 4.20 sec
+[ Info: IDMRG2  32:	obj = -3.350999526113e+00	err = 2.1641416560e-03	time = 4.89 sec
+[ Info: IDMRG2  33:	obj = -3.350966212541e+00	err = 1.3200019008e-03	time = 4.10 sec
+[ Info: IDMRG2  34:	obj = -3.350978644284e+00	err = 1.5133448272e-03	time = 4.33 sec
+[ Info: IDMRG2  35:	obj = -3.351012527265e+00	err = 2.0777101768e-03	time = 5.32 sec
+[ Info: IDMRG2  36:	obj = -3.350996738241e+00	err = 1.8816401063e-03	time = 4.48 sec
+[ Info: IDMRG2  37:	obj = -3.350978376624e+00	err = 1.0922289486e-03	time = 4.30 sec
+[ Info: IDMRG2  38:	obj = -3.351006776277e+00	err = 1.8546230034e-03	time = 5.09 sec
+[ Info: IDMRG2  39:	obj = -3.351018479037e+00	err = 2.0965195834e-03	time = 4.11 sec
+[ Info: IDMRG2  40:	obj = -3.350990412843e+00	err = 1.1301382737e-03	time = 4.10 sec
+[ Info: IDMRG2  41:	obj = -3.350997526517e+00	err = 1.4288399476e-03	time = 4.56 sec
+[ Info: IDMRG2  42:	obj = -3.351024051490e+00	err = 1.9018276525e-03	time = 5.62 sec
+[ Info: IDMRG2  43:	obj = -3.351008192768e+00	err = 1.4677742301e-03	time = 3.82 sec
+[ Info: IDMRG2  44:	obj = -3.350995412137e+00	err = 9.6750096899e-04	time = 3.88 sec
+[ Info: IDMRG2  45:	obj = -3.351017141266e+00	err = 1.5443666705e-03	time = 4.40 sec
+[ Info: IDMRG2  46:	obj = -3.351021278404e+00	err = 1.6563277273e-03	time = 4.04 sec
+[ Info: IDMRG2  47:	obj = -3.351002610572e+00	err = 1.0566844351e-03	time = 3.90 sec
+[ Info: IDMRG2  48:	obj = -3.351007643756e+00	err = 1.1913598018e-03	time = 4.30 sec
+[ Info: IDMRG2  49:	obj = -3.351023805088e+00	err = 1.6193608537e-03	time = 4.21 sec
+┌ Warning: IDMRG2 cancel 50:	obj = -3.351014633194e+00	err = 1.4122705623e-03	time = 3.29 min
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/idmrg.jl:158
+	Command being timed: "julia --project=. mpskit_idmrg2.jl"
+	User time (seconds): 1387.93
+	System time (seconds): 16.18
+	Percent of CPU this job got: 298%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 7:50.37
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3871936
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 10208613
+	Voluntary context switches: 2007
+	Involuntary context switches: 4055
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 152
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

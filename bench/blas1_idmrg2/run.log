@@ -1,0 +1,5 @@
+start: 2026-09-09T14:04:54+02:00
+MPSKit: 809c8109 De-duplicate channels where possible in `MPOHamiltonian` constructor
+route: IDMRG2, shipped settings, BLAS.set_num_threads(1)
+purpose: the 1-thread partner of bench/twopass_idmrg2, so FINDINGS 5 has a verifiable A/B
+note: run from a throwaway copy of mpskit_idmrg2.jl with the thread count changed

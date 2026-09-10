@@ -1,0 +1,5 @@
+start: 2026-09-09T14:02:41+02:00
+route: TeNPy TwoSiteDMRGEngine, Cstyle, 8 BLAS threads (the shipped default)
+purpose: matched partner for bench/twopass_idmrg2 -- FINDINGS 1 headline
+prior 1-thread run: 1.490 s/sweep (bench/abs_tenpy)
+end: 2026-09-09T14:03:47+02:00

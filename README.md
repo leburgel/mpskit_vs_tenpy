@@ -1,132 +1,104 @@
 # Haldane-model iDMRG: MPSKit (Julia) vs TeNPy (Python)
 
-Benchmark comparing MPSKit's `IDMRG2` against TeNPy's `TwoSiteDMRGEngine` on the
-Haldane model, width-6 honeycomb cylinder (12 sites/unit cell), `t1 = 1`,
-`|t2| = sqrt(129)/36`, `phi = acos(3*sqrt(3/43))`, `V = 1`, 1/3 band filling,
-warm-up `chi = 100`.
+Same model, same bond dimension, two codes. Haldane model on a width-6 honeycomb
+cylinder (12 sites per unit cell) at 1/3 band filling, `chi = 100`.
 
-**Read [FINDINGS.md](FINDINGS.md) first** — it has all measured results, the
-structural differences between the two codes, the open questions, and the
-methodology warnings you need before trusting any new number.
-
----
-
-## Setup on a fresh machine
-
-Requires Julia 1.12.2 (via `juliaup`) and Python 3.12.
-
-### 1. Julia
-
-```bash
-julia --project=. -e 'using Pkg; Pkg.instantiate()'
-```
-
-`Manifest.toml` pins MPSKit to `main` at commit
-`9c9a5c35177f518d5aa2f9ee95636a0ed19b8ecc`, so this is reproducible. To move to
-a newer `main`: `Pkg.update("MPSKit")`.
-
-> **MPSKit must be `main`, not a release.** The `IDMRG2` truncation keyword is
-> `trunc` on `main` and `trscheme` in released 0.13.13. `script.jl` uses `trunc`.
-
-### 2. Python
-
-```bash
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
-```
-
-`requirements.txt` is fully pinned. Check the Cython extensions are active —
-without them the comparison is badly skewed:
-
-```bash
-.venv/bin/python -c "import tenpy; print(tenpy.tools.optimization.have_cython_functions)"
-# must print True
-```
-
-### 3. TensorKit `ld-adjoint` branch (optional, not wired in)
-
-Not included in the transfer. Recreate with:
-
-```bash
-mkdir -p lib && git clone https://github.com/Jutho/TensorKit.jl.git lib/TensorKit.jl
-git -C lib/TensorKit.jl checkout ld-adjoint
-```
-
-It is deliberately **not** part of the environment (`Manifest.toml` has zero
-path-dependencies). To activate / revert:
-
-```bash
-julia --project=. -e 'using Pkg; Pkg.develop(path="lib/TensorKit.jl")'
-julia --project=. -e 'using Pkg; Pkg.free("TensorKit")'
-```
-
-See FINDINGS.md section 9.4 for how to A/B it correctly.
-
----
+**Results and conclusions live in [FINDINGS.md](FINDINGS.md).** Short version:
+MPSKit is ~3.4x slower per sweep than TeNPy and the two agree on the energy to
+2.2e-5. The gap started at ~15x and closed via two changes — MPSKit's MPO was
+2.2x wider than TeNPy's, and its default local eigensolver is far more
+conservative than this problem needs.
 
 ## Layout
 
 ```
-model.jl                  module HaldaneModel - the SINGLE definition source
-                          (geometry, operators, HaldaneMPO, shift_my_charge,
-                          initialstateED). Every script includes this.
-script.jl                 original MPSKit benchmark (AbstractLogger tracking)
-script_me.jl              variant with a TODO for 1-site VUMPS + bond expansion
-script.py                 original TeNPy benchmark
+mpskit_idmrg2.jl          MPSKit benchmark: IDMRG2 from the CDW product state.
+                          BENCH_VERBOSITY=3 for clean timings, 4 for the
+                          per-stage TimerOutputs split.
+tenpy_idmrg.py            TeNPy benchmark: TwoSiteDMRGEngine, order="Cstyle",
+                          with per-sweep bond-dimension tracking.
+
+mpskit_vumpssvd_vumps.jl  Variant route: VUMPSSvdCut expansion + VUMPS.
+mpskit_optexpand_vumps.jl Variant route: OptimalExpand expansion + VUMPS.
+                          Same loop (toolbox/expansion.jl), different expansion
+                          primitive. Both are slower and land higher than IDMRG2
+                          (FINDINGS section 6); kept as diagnostics of the
+                          expansion primitives.
+
+toolbox/
+  Toolbox.jl              The one importable entry point; re-exports the rest.
+  model.jl                Haldane geometry, operators, HaldaneMPO, shift_my_charge.
+  product_start.jl        The initial state: a deterministic chi=1 CDW product
+                          state, expanded through H and perturbed so IDMRG2 can
+                          start from it.
+  expansion.jl            expand_to_target: the (expand -> optimize -> cut) loop
+                          both variant routes share. Takes a final truncation
+                          (rank or tolerance) and a per-round budget `add`, and
+                          translates `add` for either primitive.
+  eigsolvers.jl           bench_eigsolve / bench_environments / bench_gauge —
+                          the sub-algorithm settings, in one place.
+  energy_tracking.jl      EnergyTracker: a `finalize` callback recording
+                          per-iteration time, energy, error and bond dimensions.
 
 bench/
-  tracked_idmrg.jl        find_groundstate_tracked: per-iteration time, energy,
-                          Galerkin error, full per-bond chi profile
-  cdw_state.jl            deterministic chi=1 CDW product state
-  script_tracked.jl       MPSKit: ED start + matched truncation + tracking
-  script_tracked.py       TeNPy: order="Cstyle" + ChiTrackingEngine
-  script_cstyle.py        minimal order="Cstyle" variant of script.py
-  compare.py              tabulate + plot all runs (see caveat below)
-  run.sh                  sequential driver (see caveat below)
-  probe_*.jl debug_*.jl   diagnostics behind FINDINGS.md sections 5 and 6
-  <run-name>/             results: stdout.log, time.log, *.npy/.npz/.png
+  run_benchmark.sh        Runs TeNPy then MPSKit.
+  probe_mpodim.jl         Re-check the MPO bond dimension (37 vs TeNPy's 37).
+  <run-name>/             Results: stdout.log, time.log, run.log, plus a
+                          snapshot of the script and eigsolvers.jl as run.
+
+lib/MPSKit.jl             Dev clone, branch lb/smaller_mpos, with a local
+                          `finalize` patch for IDMRG/IDMRG2. Wired in via
+                          Project.toml [sources].
 ```
-
-Two caveats carried over from FINDINGS.md:
-
-- `bench/run.sh` runs everything back-to-back, which **contaminates timings** —
-  the Python runs came out ~1.8x slow after heavy Julia load. Prefer separate
-  runs with cool-down.
-- `bench/compare.py`'s *"time to reach threshold"* rows are **invalid**:
-  MPSKit's spuriously low iteration-2 energy trips the threshold immediately.
-  Its wall/solver/energy/s-per-step columns are fine.
 
 ## Running
 
-Run one at a time, matched thread counts:
+Both sides set 8 BLAS threads — the Julia side with `BLAS.set_num_threads`, the
+Python side with an `os.environ` preamble ahead of the numpy import (OpenBLAS reads
+those variables once, at load time). It is not a controlled variable: BLAS threads
+make no difference on this problem (FINDINGS section 5).
 
 ```bash
-export OPENBLAS_NUM_THREADS=8 OMP_NUM_THREADS=8
+bench/run_benchmark.sh                                    # both codes
 
-JULIA_NUM_THREADS=1 GKSwstype=100 julia --project=. bench/script_tracked.jl
-MPLBACKEND=Agg .venv/bin/python bench/script_tracked.py
+MPLBACKEND=Agg .venv/bin/python tenpy_idmrg.py            # TeNPy alone
+GKSwstype=100 BENCH_VERBOSITY=3 julia --project=. mpskit_idmrg2.jl   # MPSKit alone
 ```
 
-The single most valuable missing measurement is MPSKit at
-`OPENBLAS_NUM_THREADS=1`, for a true per-core comparison against TeNPy's
-7.82 s/sweep (FINDINGS.md section 9.3).
+**Julia block-buffers stdout when redirected**, so a running job's log stays empty
+until it exits. For live output: `script -qec "julia ..." run.log`.
 
----
+Unit-cell parallelism is available but nearly exhausted (`julia -t 12` gives 1.47x;
+FINDINGS section 5).
 
-## Transferring this folder
+## Setup on a fresh machine
 
-`.venv/` (339 MB) and `lib/` (19 MB) are excluded by `.gitignore` and should not
-be copied — both are recreated by the steps above. Everything else is ~750 KB.
+### Julia
 
 ```bash
-rsync -av --exclude='.venv' --exclude='lib' --exclude='__pycache__' \
-      --exclude='*.orig' --exclude='*.bak' \
-      ./ user@remote:/path/to/mina/
+mkdir -p lib
+git clone https://github.com/QuantumKitHub/MPSKit.jl.git lib/MPSKit.jl
+git -C lib/MPSKit.jl checkout lb/smaller_mpos    # the narrow-MPO constructor
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
-or
+`Manifest.toml` is not tracked, so this resolves fresh; the versions these results
+were taken at are in FINDINGS.
+
+`Project.toml`'s `[sources]` points MPSKit at `lib/MPSKit.jl`; TensorKit comes
+from the registry (0.17.1). For a path-free environment, replace that entry with
+`MPSKit = {rev = "lb/smaller_mpos", url = "https://github.com/QuantumKitHub/MPSKit.jl.git"}`
+and re-resolve — but that loses the local `finalize` patch below.
+
+Note the local `finalize` patch in `lib/MPSKit.jl` is uncommitted and required by
+`EnergyTracker` — see FINDINGS section 9. `Pkg.free("MPSKit")` is what undoes a
+`[sources]` path entry; deleting the entry alone leaves the Manifest dev'd.
+
+### Python
 
 ```bash
-tar --exclude='.venv' --exclude='lib' --exclude='__pycache__' \
-    --exclude='*.orig' --exclude='*.bak' -czf mina.tar.gz .
+python3 -m venv --without-pip .venv          # no ensurepip on this box
+curl -sS https://bootstrap.pypa.io/get-pip.py | .venv/bin/python
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python -c "import tenpy; print(tenpy.__version__)"
 ```

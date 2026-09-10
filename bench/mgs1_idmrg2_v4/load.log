@@ -1,0 +1,7 @@
+load_before: 22.12 20.16 20.13 15/2595 3517646
+start: 2026-09-08T15:48:52+02:00
+MPSKit: 809c8109 De-duplicate channels where possible in `MPOHamiltonian` constructor
+eigsolve: Lanczos(ModifiedGramSchmidt(), krylovdim=16, maxiter=5, eager) + DynamicTol(1e-14, 1e-2, 1e0)
+  ^ SINGLE-PASS orth; identical to tolmax1e2_idmrg2_v4 in every other field
+gauge:    stock Defaults.alg_gauge()
+NOTE: concurrent with the two envrelax runs

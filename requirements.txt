@@ -1,4 +1,4 @@
-# Python environment for script.py (tenpy iDMRG benchmark)
+# Python environment for tenpy_idmrg.py (the TeNPy iDMRG benchmark)
 # Created with: python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
 #
 # Direct dependencies: physics-tenpy, numpy, matplotlib

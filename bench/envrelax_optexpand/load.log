@@ -1,0 +1,8 @@
+load_before: 30.11 24.62 20.64 51/2762 3503206
+start: 2026-09-08T15:41:34+02:00
+MPSKit: 809c8109 De-duplicate channels where possible in `MPOHamiltonian` constructor
+eigsolve:     krylovdim=16 maxiter=5 eager ishermitian tol_factor=1e0 tol_max=1e-2
+environments: krylovdim=16 maxiter=5 eager tol_factor=1e0 tol_max=1e-2   <-- NEW
+gauge:        stock Defaults.alg_gauge()
+vumps_per_round: 2 ; expand_eps: 1e-6 (script_meme only)
+NOTE: concurrent with each other and with the two idmrg2 tolerance runs

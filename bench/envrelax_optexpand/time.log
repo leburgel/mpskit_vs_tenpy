@@ -1,0 +1,461 @@
+[ Info: VUMPS init:	obj = +3.083349453512e-06	err = 1.0000e+00
+[ Info: VUMPS   1:	obj = -2.164513573576e+00	err = 6.9982509889e-01	time = 9.78 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      13.9s / 71.6%                           1.51GiB / 83.4%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  localupdate (parallel)       2   7.28s   73.0%  77.1ms   3.64s  █████▉       429MiB   33.3%   215MiB  ██▋
+│  ├─ AC_eigsolve              24   1.61s   16.1%       ∅  67.1ms  █▎          76.2MiB    5.9%  3.17MiB  ▌
+│  └─ C_eigsolve               24   240ms    2.4%       ∅  10.0ms  ▎           8.81MiB    0.7%   376KiB
+│  envs (parallel)              2   1.29s   12.9%   279ms   644ms  █            540MiB   41.9%   270MiB  ███▍
+│  ├─ left_envs                 2   681ms    6.8%   222ms   341ms  ▌            265MiB   20.6%   132MiB  █▋
+│  └─ right_envs                2   606ms    6.1%  57.8ms   303ms  ▌            275MiB   21.4%   138MiB  █▊
+│  gauge                        2   792ms    8.0%       ∅   396ms  ▋           30.9MiB    2.4%  15.4MiB  ▎
+│  ├─ gauge_orth                2  1.13ms    0.0%       ∅   566μs              2.94MiB    0.2%  1.47MiB
+│  └─ gauge_eigsolve            2  1.55μs    0.0%       ∅   774ns                    ∅       ∅        ∅
+│  right_envs                   1   333ms    3.3%  61.5ms   333ms  ▎            137MiB   10.7%   137MiB  ▉
+│  left_envs                    1   236ms    2.4%       ∅   236ms  ▎            132MiB   10.2%   132MiB  ▉
+│  calc_galerkin                2  40.5ms    0.4%       ∅  20.2ms              18.1MiB    1.4%  9.06MiB  ▏
+│  finalize                     2   112ns    0.0%       ∅  56.0ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -2.437268429046e+00	err = 7.5434067662e-01	time = 14.47 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -2.437268222359e+00	err = 8.3976e-01
+[ Info: VUMPS   1:	obj = -2.538991796587e+00	err = 9.2205402274e-01	time = 2.41 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      4.89s / 98.3%                            948MiB / 98.3%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)              2   3.38s   70.3%   1.60s   1.69s  █████▋       579MiB   62.2%   290MiB  █████
+│  ├─ right_envs                2   2.56s   53.3%   1.60s   1.28s  ████▎        293MiB   31.5%   147MiB  ██▌
+│  └─ left_envs                 2   817ms   17.0%       ∅   408ms  █▍           286MiB   30.7%   143MiB  ██▌
+│  right_envs                   1   858ms   17.8%   427ms   858ms  █▍           147MiB   15.7%   147MiB  █▎
+│  left_envs                    1   352ms    7.3%  51.6ms   352ms  ▋            143MiB   15.4%   143MiB  █▎
+│  localupdate (parallel)       2   129ms    2.7%       ∅  64.3ms  ▎           37.8MiB    4.1%  18.9MiB  ▍
+│  ├─ AC_eigsolve              24   103ms    2.1%       ∅  4.29ms  ▏           25.3MiB    2.7%  1.05MiB  ▎
+│  └─ C_eigsolve               24  19.0ms    0.4%       ∅   792μs              5.76MiB    0.6%   246KiB
+│  calc_galerkin                2  88.8ms    1.8%       ∅  44.4ms  ▏           19.2MiB    2.1%  9.61MiB  ▏
+│  gauge                        2  3.92ms    0.1%       ∅  1.96ms              5.31MiB    0.6%  2.65MiB
+│  ├─ gauge_orth                3  3.37ms    0.1%       ∅  1.12ms              5.25MiB    0.6%  1.75MiB
+│  └─ gauge_eigsolve            3  1.55μs    0.0%       ∅   515ns                    ∅       ∅        ∅
+│  finalize                     2  73.0ns    0.0%       ∅  36.5ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -2.598865148983e+00	err = 9.2705361740e-01	time = 3.63 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -2.598865851604e+00	err = 9.2100e-01
+[ Info: VUMPS   1:	obj = -2.459392129326e+00	err = 9.5671833924e-01	time = 0.76 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      2.18s / 97.2%                           1.00GiB / 98.3%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)              2   1.26s   59.4%  84.0ms   629ms  ████▊        625MiB   61.9%   313MiB  █████
+│  ├─ right_envs                2   634ms   30.0%  34.4ms   317ms  ██▍          314MiB   31.1%   157MiB  ██▌
+│  └─ left_envs                 2   623ms   29.4%  49.6ms   311ms  ██▍          311MiB   30.8%   155MiB  ██▌
+│  right_envs                   1   363ms   17.2%  54.9ms   363ms  █▍           157MiB   15.6%   157MiB  █▎
+│  left_envs                    1   283ms   13.4%       ∅   283ms  █▏           155MiB   15.4%   155MiB  █▎
+│  localupdate (parallel)       2   112ms    5.3%       ∅  56.0ms  ▍           44.1MiB    4.4%  22.0MiB  ▍
+│  ├─ AC_eigsolve              24  89.0ms    4.2%       ∅  3.71ms  ▍           30.2MiB    3.0%  1.26MiB  ▎
+│  └─ C_eigsolve               24  18.8ms    0.9%       ∅   783μs  ▏           7.06MiB    0.7%   301KiB
+│  calc_galerkin                2  52.1ms    2.5%       ∅  26.1ms  ▎           20.5MiB    2.0%  10.2MiB  ▏
+│  gauge                        2  48.4ms    2.3%  45.0ms  24.2ms  ▏           7.14MiB    0.7%  3.57MiB
+│  ├─ gauge_orth                4  48.0ms    2.3%  45.0ms  12.0ms  ▏           7.08MiB    0.7%  1.77MiB
+│  └─ gauge_eigsolve            4  1.43μs    0.0%       ∅   357ns                    ∅       ∅        ∅
+│  finalize                     2   173ns    0.0%       ∅  86.5ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -2.642322148481e+00	err = 7.6703400547e-01	time = 1.49 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -2.642321868261e+00	err = 4.0357e-01
+[ Info: VUMPS   1:	obj = -2.203844577157e+00	err = 9.7093662499e-01	time = 0.80 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      2.35s / 97.1%                           1.08GiB / 98.3%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)              2   1.37s   60.0%   123ms   684ms  ████▊        670MiB   61.8%   335MiB  █████
+│  ├─ left_envs                 2   699ms   30.7%  87.5ms   349ms  ██▌          336MiB   31.0%   168MiB  ██▌
+│  └─ right_envs                2   668ms   29.3%  35.8ms   334ms  ██▍          334MiB   30.8%   167MiB  ██▌
+│  right_envs                   1   362ms   15.9%  35.7ms   362ms  █▎           167MiB   15.4%   167MiB  █▎
+│  left_envs                    1   346ms   15.2%  43.9ms   346ms  █▎           168MiB   15.5%   168MiB  █▎
+│  localupdate (parallel)       2   141ms    6.2%       ∅  70.7ms  ▌           50.8MiB    4.7%  25.4MiB  ▍
+│  ├─ AC_eigsolve              24   110ms    4.8%       ∅  4.60ms  ▍           35.5MiB    3.3%  1.48MiB  ▎
+│  └─ C_eigsolve               24  26.1ms    1.1%       ∅  1.09ms  ▏           8.47MiB    0.8%   361KiB
+│  calc_galerkin                2  57.1ms    2.5%       ∅  28.6ms  ▎           21.7MiB    2.0%  10.9MiB  ▏
+│  gauge                        2  3.54ms    0.2%       ∅  1.77ms              7.21MiB    0.7%  3.61MiB
+│  ├─ gauge_orth                4  3.13ms    0.1%       ∅   781μs              7.15MiB    0.7%  1.79MiB
+│  └─ gauge_eigsolve            4  1.29μs    0.0%       ∅   324ns                    ∅       ∅        ∅
+│  finalize                     2  75.0ns    0.0%       ∅  37.5ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -2.574521799680e+00	err = 8.2553212000e-01	time = 1.59 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -2.574521814043e+00	err = 8.8858e-01
+[ Info: VUMPS   1:	obj = -2.724212405633e+00	err = 7.4992857071e-01	time = 0.93 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      2.63s / 97.4%                           1.17GiB / 98.3%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)              2   1.49s   58.1%   139ms   744ms  ████▋        722MiB   61.1%   361MiB  ████▉
+│  ├─ left_envs                 2   752ms   29.4%  94.8ms   376ms  ██▍          364MiB   30.8%   182MiB  ██▌
+│  └─ right_envs                2   736ms   28.7%  44.1ms   368ms  ██▎          357MiB   30.2%   179MiB  ██▍
+│  left_envs                    1   406ms   15.9%  77.0ms   406ms  █▎           182MiB   15.4%   182MiB  █▎
+│  right_envs                   1   377ms   14.7%  43.9ms   377ms  █▏           179MiB   15.1%   179MiB  █▎
+│  localupdate (parallel)       2   188ms    7.3%       ∅  93.9ms  ▋           61.7MiB    5.2%  30.9MiB  ▍
+│  ├─ AC_eigsolve              24   148ms    5.8%       ∅  6.15ms  ▌           43.8MiB    3.7%  1.82MiB  ▎
+│  └─ C_eigsolve               24  35.0ms    1.4%       ∅  1.46ms  ▏           11.0MiB    0.9%   471KiB  ▏
+│  calc_galerkin                2  94.8ms    3.7%  40.3ms  47.4ms  ▎           23.1MiB    2.0%  11.6MiB  ▏
+│  gauge                        2  6.68ms    0.3%       ∅  3.34ms              14.5MiB    1.2%  7.27MiB  ▏
+│  ├─ gauge_orth                8  6.21ms    0.2%       ∅   776μs              14.5MiB    1.2%  1.81MiB  ▏
+│  └─ gauge_eigsolve            8  1.96μs    0.0%       ∅   245ns                    ∅       ∅        ∅
+│  finalize                     2   112ns    0.0%       ∅  56.0ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -2.518691458514e+00	err = 8.4894742198e-01	time = 1.80 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -2.518692037810e+00	err = 7.2084e-01
+[ Info: VUMPS   1:	obj = -1.782508656452e+00	err = 5.9493810181e-01	time = 0.99 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      2.86s / 97.1%                           1.30GiB / 98.3%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)              2   1.65s   59.2%   162ms   823ms  ████▊        791MiB   60.3%   395MiB  ████▉
+│  ├─ left_envs                 2   840ms   30.2%  88.3ms   420ms  ██▍          399MiB   30.5%   200MiB  ██▍
+│  └─ right_envs                2   806ms   29.0%  74.1ms   403ms  ██▍          391MiB   29.8%   196MiB  ██▍
+│  left_envs                    1   444ms   15.9%  64.3ms   444ms  █▎           199MiB   15.2%   199MiB  █▎
+│  right_envs                   1   408ms   14.7%  44.6ms   408ms  █▏           195MiB   14.9%   195MiB  █▎
+│  localupdate (parallel)       2   216ms    7.8%       ∅   108ms  ▋           80.4MiB    6.1%  40.2MiB  ▌
+│  ├─ AC_eigsolve              24   158ms    5.7%       ∅  6.59ms  ▌           57.0MiB    4.3%  2.37MiB  ▍
+│  └─ C_eigsolve               24  52.4ms    1.9%       ∅  2.18ms  ▏           16.5MiB    1.3%   702KiB  ▏
+│  calc_galerkin                2  57.3ms    2.1%       ∅  28.6ms  ▏           25.1MiB    1.9%  12.5MiB  ▏
+│  gauge                        2  10.0ms    0.4%       ∅  5.02ms              20.2MiB    1.5%  10.1MiB  ▏
+│  ├─ gauge_orth               11  9.57ms    0.3%       ∅   870μs              20.2MiB    1.5%  1.83MiB  ▏
+│  └─ gauge_eigsolve           11  2.41μs    0.0%       ∅   219ns                    ∅       ∅        ∅
+│  finalize                     2   125ns    0.0%       ∅  62.5ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -2.268585000796e+00	err = 8.3529421017e-01	time = 1.95 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -2.268583558596e+00	err = 7.5141e-01
+[ Info: VUMPS   1:	obj = -2.256943018565e+00	err = 7.8399185688e-01	time = 1.15 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      3.19s / 97.7%                           1.50GiB / 98.3%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)              2   1.86s   59.5%   175ms   928ms  ████▊        903MiB   59.8%   452MiB  ████▊
+│  ├─ left_envs                 2   954ms   30.6%  94.3ms   477ms  ██▌          457MiB   30.3%   228MiB  ██▍
+│  └─ right_envs                2   901ms   28.9%  80.9ms   450ms  ██▎          447MiB   29.6%   223MiB  ██▍
+│  left_envs                    1   467ms   15.0%  45.4ms   467ms  █▎           228MiB   15.1%   228MiB  █▎
+│  right_envs                   1   448ms   14.4%  36.6ms   448ms  █▏           223MiB   14.8%   223MiB  █▏
+│  localupdate (parallel)       2   279ms    9.0%       ∅   140ms  ▊            111MiB    7.3%  55.4MiB  ▋
+│  ├─ AC_eigsolve              24   200ms    6.4%       ∅  8.32ms  ▌           78.2MiB    5.2%  3.26MiB  ▍
+│  └─ C_eigsolve               24  73.6ms    2.4%       ∅  3.07ms  ▎           25.5MiB    1.7%  1.06MiB  ▏
+│  calc_galerkin                2  60.6ms    1.9%       ∅  30.3ms  ▏           28.3MiB    1.9%  14.1MiB  ▏
+│  gauge                        2  9.27ms    0.3%       ∅  4.64ms              16.9MiB    1.1%  8.43MiB  ▏
+│  ├─ gauge_orth                9  8.79ms    0.3%       ∅   976μs              16.8MiB    1.1%  1.86MiB  ▏
+│  └─ gauge_eigsolve            9  4.20μs    0.0%       ∅   467ns                    ∅       ∅        ∅
+│  finalize                     2   168ns    0.0%       ∅  84.0ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -2.150672061231e+00	err = 7.5995755977e-01	time = 2.23 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -2.150670722136e+00	err = 6.4130e-01
+[ Info: VUMPS   1:	obj = -2.169815432700e+00	err = 6.4556772556e-01	time = 1.37 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      7.20s / 99.0%                           1.94GiB / 98.5%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  gauge                        2   3.50s   49.1%   143ms   1.75s  ███▉         163MiB    8.3%  81.6MiB  ▋
+│  ├─ gauge_eigsolve           17   3.42s   48.0%  87.6ms   201ms  ███▉         131MiB    6.7%  7.69MiB  ▌
+│  └─ gauge_orth               17  76.7ms    1.1%  55.3ms  4.51ms  ▏           32.3MiB    1.7%  1.90MiB  ▏
+│  envs (parallel)              2   2.14s   30.1%   172ms   1.07s  ██▍         1.04GiB   54.5%   533MiB  ████▍
+│  ├─ right_envs                2   1.12s   15.7%   129ms   558ms  █▎           528MiB   27.0%   264MiB  ██▏
+│  └─ left_envs                 2   1.03s   14.4%  42.8ms   513ms  █▏           538MiB   27.5%   269MiB  ██▎
+│  right_envs                   1   519ms    7.3%  37.2ms   519ms  ▋            263MiB   13.4%   263MiB  █▏
+│  left_envs                    1   510ms    7.2%  45.6ms   510ms  ▋            268MiB   13.7%   268MiB  █▏
+│  localupdate (parallel)       2   393ms    5.5%       ∅   196ms  ▌            164MiB    8.4%  81.8MiB  ▋
+│  ├─ AC_eigsolve              24   279ms    3.9%       ∅  11.6ms  ▍            114MiB    5.8%  4.75MiB  ▌
+│  └─ C_eigsolve               24   107ms    1.5%       ∅  4.47ms  ▏           42.6MiB    2.2%  1.77MiB  ▏
+│  calc_galerkin                2  64.3ms    0.9%       ∅  32.2ms  ▏           32.8MiB    1.7%  16.4MiB  ▏
+│  finalize                     2  65.0ns    0.0%       ∅  32.5ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -2.478680074428e+00	err = 4.3498753803e-01	time = 6.12 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -2.478680451975e+00	err = 4.4554e-01
+[ Info: VUMPS   1:	obj = -2.561211249582e+00	err = 4.0139795534e-01	time = 1.40 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      3.84s / 96.8%                           2.34GiB / 98.4%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)              2   2.14s   57.6%   225ms   1.07s  ████▋       1.34GiB   58.1%   685MiB  ████▋
+│  ├─ right_envs                2   1.08s   29.0%   106ms   538ms  ██▍          680MiB   28.8%   340MiB  ██▎
+│  └─ left_envs                 2   1.06s   28.6%   119ms   531ms  ██▎          691MiB   29.3%   345MiB  ██▍
+│  left_envs                    1   543ms   14.6%  63.0ms   543ms  █▏           344MiB   14.6%   344MiB  █▏
+│  right_envs                   1   501ms   13.5%  26.8ms   501ms  █▏           339MiB   14.4%   339MiB  █▏
+│  localupdate (parallel)       2   436ms   11.7%  39.5ms   218ms  █            229MiB    9.7%   115MiB  ▊
+│  ├─ AC_eigsolve              24   318ms    8.6%  39.5ms  13.2ms  ▋            159MiB    6.8%  6.64MiB  ▌
+│  └─ C_eigsolve               24   110ms    3.0%       ∅  4.58ms  ▎           62.5MiB    2.7%  2.60MiB  ▎
+│  calc_galerkin                2  69.9ms    1.9%       ∅  35.0ms  ▏           41.6MiB    1.8%  20.8MiB  ▏
+│  gauge                        2  25.4ms    0.7%       ∅  12.7ms              33.6MiB    1.4%  16.8MiB  ▏
+│  ├─ gauge_orth               17  24.8ms    0.7%       ∅  1.46ms              33.4MiB    1.4%  1.97MiB  ▏
+│  └─ gauge_eigsolve           17  3.65μs    0.0%       ∅   215ns                    ∅       ∅        ∅
+│  finalize                     2   109ns    0.0%       ∅  54.5ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -2.823085894335e+00	err = 4.6525769127e-01	time = 2.70 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -2.823086205164e+00	err = 4.0094e-01
+[ Info: VUMPS   1:	obj = -2.917474063206e+00	err = 4.5493487802e-01	time = 1.58 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      4.38s / 97.4%                           3.19GiB / 98.5%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)              2   2.39s   56.1%   267ms   1.20s  ████▌       1.81GiB   57.6%   928MiB  ████▋
+│  ├─ right_envs                2   1.21s   28.5%   137ms   607ms  ██▎          925MiB   28.7%   463MiB  ██▎
+│  └─ left_envs                 2   1.18s   27.6%   130ms   589ms  ██▎          931MiB   28.9%   465MiB  ██▎
+│  localupdate (parallel)       2   600ms   14.1%  88.5ms   300ms  █▏           353MiB   11.0%   176MiB  ▉
+│  ├─ AC_eigsolve              24   421ms    9.9%  64.3ms  17.5ms  ▊            243MiB    7.6%  10.1MiB  ▋
+│  └─ C_eigsolve               24   169ms    4.0%  24.2ms  7.03ms  ▍            102MiB    3.2%  4.24MiB  ▎
+│  left_envs                    1   599ms   14.0%  79.5ms   599ms  █▏           464MiB   14.4%   464MiB  █▏
+│  right_envs                   1   566ms   13.3%  45.3ms   566ms  █            461MiB   14.3%   461MiB  █▏
+│  calc_galerkin                2  80.6ms    1.9%       ∅  40.3ms  ▏           55.8MiB    1.7%  27.9MiB  ▏
+│  gauge                        2  28.7ms    0.7%       ∅  14.3ms              31.1MiB    1.0%  15.6MiB  ▏
+│  ├─ gauge_orth               15  28.0ms    0.7%       ∅  1.87ms              30.9MiB    1.0%  2.06MiB  ▏
+│  └─ gauge_eigsolve           15  3.58μs    0.0%       ∅   239ns                    ∅       ∅        ∅
+│  finalize                     2   113ns    0.0%       ∅  56.5ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -2.964983710097e+00	err = 4.7989427409e-01	time = 3.13 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -2.964983614787e+00	err = 4.0742e-01
+[ Info: VUMPS   1:	obj = -3.076116266350e+00	err = 2.5173351147e-01	time = 1.99 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      5.34s / 98.3%                           4.80GiB / 98.5%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)              2   2.88s   54.9%   414ms   1.44s  ████▍       2.71GiB   57.3%  1.35GiB  ████▋
+│  ├─ right_envs                2   1.44s   27.5%   199ms   721ms  ██▎         1.36GiB   28.7%   696MiB  ██▎
+│  └─ left_envs                 2   1.44s   27.4%   215ms   719ms  ██▎         1.35GiB   28.5%   691MiB  ██▎
+│  right_envs                   1   773ms   14.7%   100ms   773ms  █▏           694MiB   14.3%   694MiB  █▏
+│  localupdate (parallel)       2   756ms   14.4%   137ms   378ms  █▏           577MiB   11.9%   289MiB  █
+│  ├─ AC_eigsolve              24   517ms    9.8%  83.3ms  21.5ms  ▊            395MiB    8.2%  16.5MiB  ▋
+│  └─ C_eigsolve               24   226ms    4.3%  53.2ms  9.42ms  ▍            174MiB    3.6%  7.23MiB  ▎
+│  left_envs                    1   725ms   13.8%  92.0ms   725ms  █▏           689MiB   14.2%   689MiB  █▏
+│  calc_galerkin                2  87.4ms    1.7%       ∅  43.7ms  ▏           82.4MiB    1.7%  41.2MiB  ▏
+│  gauge                        2  28.8ms    0.5%       ∅  14.4ms              27.2MiB    0.6%  13.6MiB
+│  ├─ gauge_orth               12  28.1ms    0.5%       ∅  2.34ms              26.9MiB    0.6%  2.24MiB
+│  └─ gauge_eigsolve           12  2.90μs    0.0%       ∅   242ns                    ∅       ∅        ∅
+│  finalize                     2   118ns    0.0%       ∅  59.0ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -3.140899883973e+00	err = 1.9535272980e-01	time = 3.79 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -3.140900011673e+00	err = 1.7173e-01
+[ Info: VUMPS   1:	obj = -3.189708719756e+00	err = 1.6975293941e-01	time = 2.86 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      7.91s / 98.2%                           8.59GiB / 98.5%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)              2   4.22s   54.4%   678ms   2.11s  ████▍       4.83GiB   57.0%  2.41GiB  ████▋
+│  ├─ right_envs                2   2.19s   28.2%   355ms   1.09s  ██▎         2.44GiB   28.8%  1.22GiB  ██▎
+│  └─ left_envs                 2   2.03s   26.2%   323ms   1.02s  ██▏         2.39GiB   28.2%  1.19GiB  ██▎
+│  localupdate (parallel)       2   1.20s   15.5%   233ms   601ms  █▎          1.05GiB   12.5%   539MiB  █
+│  ├─ AC_eigsolve              24   818ms   10.5%   141ms  34.1ms  ▉            738MiB    8.5%  30.7MiB  ▋
+│  └─ C_eigsolve               24   365ms    4.7%  91.5ms  15.2ms  ▍            331MiB    3.8%  13.8MiB  ▎
+│  right_envs                   1   1.09s   14.1%   175ms   1.09s  █▏          1.22GiB   14.4%  1.22GiB  █▏
+│  left_envs                    1   1.06s   13.7%   146ms   1.06s  █▏          1.19GiB   14.1%  1.19GiB  █▏
+│  calc_galerkin                2   128ms    1.7%       ∅  64.2ms  ▏            145MiB    1.7%  72.7MiB  ▏
+│  gauge                        2  54.7ms    0.7%       ∅  27.3ms              35.0MiB    0.4%  17.5MiB
+│  ├─ gauge_orth               13  53.5ms    0.7%       ∅  4.11ms              34.2MiB    0.4%  2.63MiB
+│  └─ gauge_eigsolve           13  5.03μs    0.0%       ∅   387ns                    ∅       ∅        ∅
+│  finalize                     2   122ns    0.0%       ∅  61.0ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -3.234286965639e+00	err = 1.2507429029e-01	time = 5.69 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -3.234286946711e+00	err = 1.2245e-01
+[ Info: VUMPS   1:	obj = -3.270311310891e+00	err = 1.1395284030e-01	time = 5.23 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      15.6s / 98.5%                           17.2GiB / 98.6%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)              2   8.97s   58.5%   2.76s   4.49s  ████▋       9.61GiB   56.8%  4.81GiB  ████▌
+│  ├─ right_envs                2   5.22s   34.1%   2.13s   2.61s  ██▊         4.89GiB   28.8%  2.44GiB  ██▎
+│  └─ left_envs                 2   3.75s   24.5%   627ms   1.87s  ██          4.73GiB   27.9%  2.36GiB  ██▎
+│  localupdate (parallel)       2   2.40s   15.6%   401ms   1.20s  █▎          2.20GiB   13.0%  1.10GiB  █
+│  ├─ AC_eigsolve              24   1.66s   10.8%   288ms  69.0ms  ▉           1.50GiB    8.8%  63.8MiB  ▊
+│  └─ C_eigsolve               24   678ms    4.4%  84.3ms  28.3ms  ▍            704MiB    4.1%  29.3MiB  ▍
+│  right_envs                   1   1.81s   11.8%   332ms   1.81s  █           2.43GiB   14.4%  2.43GiB  █▏
+│  left_envs                    1   1.76s   11.5%   261ms   1.76s  ▉           2.35GiB   13.9%  2.35GiB  █▏
+│  calc_galerkin                2   223ms    1.5%  23.2ms   112ms  ▏            288MiB    1.7%   144MiB  ▏
+│  gauge                        2   175ms    1.1%  50.3ms  87.5ms  ▏           57.8MiB    0.3%  28.9MiB
+│  ├─ gauge_orth               16   173ms    1.1%  50.3ms  10.8ms  ▏           56.1MiB    0.3%  3.51MiB
+│  └─ gauge_eigsolve           16  7.12μs    0.0%       ∅   445ns                    ∅       ∅        ∅
+│  finalize                     2   149ns    0.0%       ∅  74.5ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -3.294142561508e+00	err = 6.9919987762e-02	time = 11.84 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -3.294142567665e+00	err = 8.1899e-02
+[ Info: VUMPS   1:	obj = -3.311399586342e+00	err = 5.6529585924e-02	time = 9.20 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                      24.0s / 97.9%                           32.9GiB / 98.5%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)              2   12.2s   52.0%   3.04s   6.09s  ████▏       18.5GiB   57.1%  9.26GiB  ████▋
+│  ├─ left_envs                 2   6.46s   27.5%   1.91s   3.23s  ██▎         9.09GiB   28.1%  4.54GiB  ██▎
+│  └─ right_envs                2   5.73s   24.4%   1.13s   2.87s  ██          9.42GiB   29.1%  4.71GiB  ██▍
+│  localupdate (parallel)       2   5.14s   21.9%   1.88s   2.57s  █▊          4.03GiB   12.4%  2.01GiB  █
+│  ├─ AC_eigsolve              24   3.78s   16.1%   1.51s   157ms  █▎          2.76GiB    8.5%   118MiB  ▋
+│  └─ C_eigsolve               24   1.31s    5.6%   377ms  54.7ms  ▌           1.25GiB    3.9%  53.3MiB  ▎
+│  right_envs                   1   2.77s   11.8%   555ms   2.77s  █           4.70GiB   14.5%  4.70GiB  █▏
+│  left_envs                    1   2.66s   11.3%   522ms   2.66s  ▉           4.53GiB   14.0%  4.53GiB  █▏
+│  calc_galerkin                2   456ms    1.9%   126ms   228ms  ▏            553MiB    1.7%   277MiB  ▏
+│  gauge                        2   244ms    1.0%       ∅   122ms  ▏           92.2MiB    0.3%  46.1MiB
+│  ├─ gauge_orth               18   241ms    1.0%       ∅  13.4ms  ▏           88.9MiB    0.3%  4.94MiB
+│  └─ gauge_eigsolve           18  7.25μs    0.0%       ∅   403ns                    ∅       ∅        ∅
+│  finalize                     2   182ns    0.0%       ∅  91.0ns                    ∅       ∅        ∅
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 2:	obj = -3.323255648913e+00	err = 4.4866910577e-02	time = 18.20 sec
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+[ Info: VUMPS init:	obj = -3.323246855146e+00	err = 4.3606e-02
+[ Info: VUMPS   1:	obj = -3.329095946006e+00	err = 3.5895692931e-02	time = 7.35 sec
+[ Info: VUMPS   2:	obj = -3.332608747939e+00	err = 2.7941020994e-02	time = 8.70 sec
+[ Info: VUMPS   3:	obj = -3.334949815784e+00	err = 2.5679686814e-02	time = 9.33 sec
+[ Info: VUMPS   4:	obj = -3.336173101982e+00	err = 2.3644755155e-02	time = 6.76 sec
+[ Info: VUMPS   5:	obj = -3.337755997914e+00	err = 2.0121341291e-02	time = 8.66 sec
+[ Info: VUMPS   6:	obj = -3.338388676135e+00	err = 1.8836703498e-02	time = 8.78 sec
+[ Info: VUMPS   7:	obj = -3.339094051863e+00	err = 1.8649508954e-02	time = 6.77 sec
+[ Info: VUMPS   8:	obj = -3.339579030533e+00	err = 1.6175246167e-02	time = 8.17 sec
+[ Info: VUMPS   9:	obj = -3.340115431844e+00	err = 1.4935015552e-02	time = 8.18 sec
+[ Info: VUMPS  10:	obj = -3.340476863478e+00	err = 1.3658055876e-02	time = 6.50 sec
+[ Info: VUMPS  11:	obj = -3.340870360250e+00	err = 1.1830253189e-02	time = 8.39 sec
+[ Info: VUMPS  12:	obj = -3.341128611770e+00	err = 1.1978552053e-02	time = 8.37 sec
+[ Info: VUMPS  13:	obj = -3.341463699125e+00	err = 1.0012849100e-02	time = 6.21 sec
+[ Info: VUMPS  14:	obj = -3.341691449397e+00	err = 9.7916321515e-03	time = 7.77 sec
+[ Info: VUMPS  15:	obj = -3.341960268912e+00	err = 8.7791874132e-03	time = 7.88 sec
+[ Info: VUMPS  16:	obj = -3.342158650149e+00	err = 8.5164149555e-03	time = 8.47 sec
+[ Info: VUMPS  17:	obj = -3.342382873224e+00	err = 7.8974071934e-03	time = 6.75 sec
+[ Info: VUMPS  18:	obj = -3.342565811464e+00	err = 7.5843875348e-03	time = 8.43 sec
+[ Info: VUMPS  19:	obj = -3.342767499046e+00	err = 7.1711668107e-03	time = 8.48 sec
+[ Info: VUMPS  20:	obj = -3.342934865040e+00	err = 6.7167092237e-03	time = 6.66 sec
+[ Info: VUMPS  21:	obj = -3.343111796881e+00	err = 6.6810082083e-03	time = 7.93 sec
+[ Info: VUMPS  22:	obj = -3.343271176749e+00	err = 5.8786454336e-03	time = 7.68 sec
+[ Info: VUMPS  23:	obj = -3.343431496348e+00	err = 5.9510673636e-03	time = 6.74 sec
+[ Info: VUMPS  24:	obj = -3.343580009919e+00	err = 5.1182768444e-03	time = 8.56 sec
+[ Info: VUMPS  25:	obj = -3.343715669913e+00	err = 5.5821713336e-03	time = 8.49 sec
+[ Info: VUMPS  26:	obj = -3.343854672372e+00	err = 4.6693694380e-03	time = 8.61 sec
+[ Info: VUMPS  27:	obj = -3.343979982662e+00	err = 5.1454079494e-03	time = 6.88 sec
+[ Info: VUMPS  28:	obj = -3.344108605082e+00	err = 4.6465266093e-03	time = 8.07 sec
+[ Info: VUMPS  29:	obj = -3.344229616922e+00	err = 4.7573108283e-03	time = 8.20 sec
+[ Info: VUMPS  30:	obj = -3.344352311467e+00	err = 4.4202577429e-03	time = 7.91 sec
+[ Info: VUMPS  31:	obj = -3.344467820690e+00	err = 4.5153215889e-03	time = 6.68 sec
+[ Info: VUMPS  32:	obj = -3.344583281243e+00	err = 4.3777639267e-03	time = 7.72 sec
+[ Info: VUMPS  33:	obj = -3.344696248801e+00	err = 4.2761494648e-03	time = 7.75 sec
+[ Info: VUMPS  34:	obj = -3.344808167966e+00	err = 4.2083852853e-03	time = 7.92 sec
+[ Info: VUMPS  35:	obj = -3.344916897679e+00	err = 4.0803217803e-03	time = 6.78 sec
+[ Info: VUMPS  36:	obj = -3.345024650817e+00	err = 4.1132648967e-03	time = 8.25 sec
+[ Info: VUMPS  37:	obj = -3.345133007145e+00	err = 3.7672617145e-03	time = 7.82 sec
+[ Info: VUMPS  38:	obj = -3.345235484049e+00	err = 3.8864334505e-03	time = 8.03 sec
+[ Info: VUMPS  39:	obj = -3.345338292492e+00	err = 3.7238022053e-03	time = 6.79 sec
+[ Info: VUMPS  40:	obj = -3.345438946963e+00	err = 3.6076062369e-03	time = 7.95 sec
+[ Info: VUMPS  41:	obj = -3.345536512221e+00	err = 3.4863959384e-03	time = 8.12 sec
+[ Info: VUMPS  42:	obj = -3.345631255929e+00	err = 3.4418264747e-03	time = 8.18 sec
+[ Info: VUMPS  43:	obj = -3.345723431169e+00	err = 3.3554897342e-03	time = 7.00 sec
+[ Info: VUMPS  44:	obj = -3.345812369275e+00	err = 3.3201692611e-03	time = 8.20 sec
+[ Info: VUMPS  45:	obj = -3.345898353014e+00	err = 3.2720347693e-03	time = 8.45 sec
+[ Info: VUMPS  46:	obj = -3.345981829069e+00	err = 3.2279108018e-03	time = 8.44 sec
+[ Info: VUMPS  47:	obj = -3.346061999359e+00	err = 3.1709631468e-03	time = 9.01 sec
+[ Info: VUMPS  48:	obj = -3.346138606412e+00	err = 3.1291656448e-03	time = 7.28 sec
+[ Info: VUMPS  49:	obj = -3.346212728008e+00	err = 3.0664414041e-03	time = 9.27 sec
+┌ Info: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│                                                    Time                                 Allocations
+│                                  ────────────────────────────────────────    ──────────────────────────────────
+│        Tot / % measured:                       401s / 99.1%                            518GiB / 99.1%
+│  ──────────────────────────────  ────────────────────────────────────────    ──────────────────────────────────
+│  Section                 ncalls    time    %tot      GC     avg                alloc    %tot      avg
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+│  envs (parallel)             50    296s   74.4%   91.6s   5.91s  ██████       413GiB   80.4%  8.26GiB  ██████▍
+│  ├─ left_envs                50    148s   37.3%   47.0s   2.97s  ███          203GiB   39.5%  4.06GiB  ███▏
+│  └─ right_envs               50    147s   37.1%   44.6s   2.95s  ███          210GiB   40.9%  4.20GiB  ███▎
+│  localupdate (parallel)      50   78.0s   19.6%   23.3s   1.56s  █▋          76.5GiB   14.9%  1.53GiB  █▎
+│  ├─ AC_eigsolve             600   54.0s   13.6%   15.5s  90.0ms  █▏          53.5GiB   10.4%  91.2MiB  ▉
+│  └─ C_eigsolve              600   22.8s    5.7%   7.75s  38.1ms  ▌           22.6GiB    4.4%  38.6MiB  ▍
+│  calc_galerkin               50   8.88s    2.2%   1.96s   178ms  ▏           12.1GiB    2.3%   247MiB  ▎
+│  gauge                       50   7.79s    2.0%   570ms   156ms  ▏           3.89GiB    0.8%  79.6MiB
+│  ├─ gauge_orth              545   6.40s    1.6%   335ms  11.7ms  ▏           2.48GiB    0.5%  4.66MiB
+│  └─ gauge_eigsolve          545   1.28s    0.3%   213ms  2.36ms              1.33GiB    0.3%  2.50MiB
+│  right_envs                   1   4.64s    1.2%   2.38s   4.64s  ▏           4.19GiB    0.8%  4.19GiB  ▏
+│  left_envs                    1   2.47s    0.6%   515ms   2.47s              4.05GiB    0.8%  4.05GiB  ▏
+│  finalize                    50   759μs    0.0%       ∅  15.2μs              18.9KiB    0.0%     386B
+│ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+└ 
+┌ Warning: VUMPS cancel 50:	obj = -3.346282392572e+00	err = 3.0347464140e-03	time = 6.57 min
+└ @ MPSKit ~/projects/mpskit_vs_tenpy/lib/MPSKit.jl/src/algorithms/groundstate/vumps.jl:89
+	Command being timed: "julia --project=. script_meme.jl"
+	User time (seconds): 850.07
+	System time (seconds): 29.56
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 14:35.90
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 5615296
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 19104720
+	Voluntary context switches: 666
+	Involuntary context switches: 2387
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 144
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
